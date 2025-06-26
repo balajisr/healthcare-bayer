@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const taskRoutes = require("./routes/healthRouter");
+const attendanceRoutes = require("./routes/attendance");
 
 const app = express();
 app.use(express.json());
 
 app.use("/api/tasks", taskRoutes);
+app.use('/api/attendance', attendanceRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
