@@ -1,10 +1,12 @@
-export interface Staff {
-    id: number;
-    name: string;
-    staffId: string;
-    role: 'Doctor' | 'Nurse' | 'Receptionist' | 'Technician';
-    department: string;
-    availability: string;
-    shift: string;
-    contact: string;
+export interface staff {
+    fullName: string;
+    staffID: string;
+    selectedRole: string;
+    selectedShift: string;
+    phoneNumber: string;
+}
+
+export interface shiftData {
+    role: string[];
+    notifications: string[];
 }

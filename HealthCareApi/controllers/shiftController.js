@@ -45,3 +45,21 @@ exports.configureShifts = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+exports.shift = async(req, res) => {
+  try {
+    const { fullName,staffID, phoneNumber,selectedRole,selectedShift } = req.body;
+    const newShift = {
+        fullName: fullName,
+        staffID: staffID,
+        phoneNumber: phoneNumber,
+        selectedRole: selectedRole,
+        selectedShift: selectedShift
+    };
+    return res.status(201).json({
+        message: 'Shift added successfully',
+        shift: newShift
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+}
