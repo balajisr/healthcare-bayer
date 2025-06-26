@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const shiftConfigure = new mongoose.Schema({
-  shiftType: {
-    type: String,
+  shiftId: {
+    type: Number,
     required: true,
   },
   roleType: {
@@ -15,4 +15,4 @@ const shiftConfigure = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("ShiftConfigure", shiftConfigure);
+module.exports = mongoose.model("shiftconfigure", shiftConfigure);

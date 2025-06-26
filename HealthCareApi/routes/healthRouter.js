@@ -4,6 +4,7 @@ const Task = require("../models/Task");
 const {
   addShifts,
   configureShifts,
+  getShifts,
 } = require("../controllers/shiftController");
 const { basicAuth } = require("../middleware/basicAuthMiddleware");
 router.get("/", async (req, res) => {
@@ -17,6 +18,10 @@ router.post("/configureShifts", async (req, res) => {
 
 router.post("/addShifts", async (req, res) => {
   const response = await addShifts(req, res);
+});
+
+router.get("/getShifts", async (req, res) => {
+  await getShifts(req, res);
 });
 
 module.exports = router;
