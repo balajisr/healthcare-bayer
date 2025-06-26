@@ -1,4 +1,5 @@
 const ShiftConfigure = require("../models/shiftConfigure");
+const shiftList = require("../models/shiftList");
 const shifts = require("../models/shifts");
 
 exports.addShifts = async (req, res) => {
@@ -55,6 +56,8 @@ exports.shift = async(req, res) => {
         selectedRole: selectedRole,
         selectedShift: selectedShift
     };
+    const task = new shiftList({ title });
+    await task.save();
     return res.status(201).json({
         message: 'Shift added successfully',
         shift: newShift
