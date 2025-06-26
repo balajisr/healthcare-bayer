@@ -5,6 +5,7 @@ const {
   addShifts,
   configureShifts,
   getShifts,
+  assignedStaff,
 } = require("../controllers/shiftController");
 const { basicAuth } = require("../middleware/basicAuthMiddleware");
 router.get("/", async (req, res) => {
@@ -36,5 +37,9 @@ router.get("/shiftData", (req, res) => {
     shiftPreference: ["Morning", "Evening", "Night"],
   };
   res.json(config);
+});
+
+router.post("/assignedStaff", async (req, res) => {
+  await assignedStaff(req, res);
 });
 module.exports = router;

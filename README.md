@@ -47,3 +47,11 @@ API Lists :
     }
     collection : shiftconfigure
 
+4. Assigned Staff : http://localhost:3000/api/assignedStaff
+    METHOD : POST
+    param : {
+        staffId : Number,
+        slotId : String,
+        assignedDate : Date
+    }
+    collection : slotassign
