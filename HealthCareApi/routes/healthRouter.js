@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Task = require("../models/Task");
 const {
+  shift,
   addShifts,
   configureShifts,
 } = require("../controllers/shiftController");
@@ -18,5 +18,15 @@ router.post("/configureShifts", async (req, res) => {
 router.post("/addShifts", async (req, res) => {
   const response = await addShifts(req, res);
 });
+router.post('/addShiftList', async(req, res) => {
+    const response = await shift(req, res);
+});
 
+router.get('/shiftData', (req, res) => {
+    const config = {
+        roles: ['Doctor', 'Nurse', 'technical'],
+        shiftPreference: ['Morning', 'Evening', 'Night']
+    };
+    res.json(config);
+});
 module.exports = router;
