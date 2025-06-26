@@ -23,9 +23,6 @@ router.post("/addShifts", async (req, res) => {
 router.post("/addShiftList", async (req, res) => {
   await shift(req, res);
 });
-router.post("/addShiftList", async (req, res) => {
-  const response = await shift(req, res);
-});
 
 router.get("/getShifts", async (req, res) => {
   await getShifts(req, res);
