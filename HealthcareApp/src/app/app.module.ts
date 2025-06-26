@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { SchedulerModule } from 'angular-calendar-scheduler';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ViewSchedulerComponent } from './components/view-scheduler/view-scheduler.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 
@@ -22,12 +22,13 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FlatpickrModule.forRoot<any>(),
     // ✅ angular-calendar setup
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-
+    NgbModule,
     // ✅ angular-calendar-scheduler setup
     SchedulerModule.forRoot({
       locale: 'en',

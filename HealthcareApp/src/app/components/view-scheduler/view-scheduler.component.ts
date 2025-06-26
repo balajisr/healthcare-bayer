@@ -133,7 +133,7 @@ export class ViewSchedulerComponent {
 
   activeDayIsOpen: boolean = true;
 
-  // constructor(private modal: NgbModal) {}
+  constructor(private modal: NgbModal) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -169,7 +169,7 @@ export class ViewSchedulerComponent {
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
-    // this.modal.open(this.modalContent, { size: 'lg' });
+    this.modal.open(this.modalContent, { size: 'lg' });
   }
 
   addEvent(): void {
