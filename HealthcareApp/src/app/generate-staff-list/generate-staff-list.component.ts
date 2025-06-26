@@ -19,6 +19,10 @@ export class GenerateStaffListComponent implements OnInit {
   selectedRole: string = this.roles[0];
   shifts: string[] = ['Morning', 'Evening', 'Night'];
   selectedShift: string = this.shifts[0];
+  staffList: any[] = [
+    { fullName: 'John Doe', staffID: '001', role: 'Doctor', shift: 'Morning', phoneNumber: '123-456-7890' },
+    { fullName: 'Jane Smith', staffID: '002', role: 'Nurse', shift: 'Evening', phoneNumber: '987-654-3210' }];
+    searchTerm: string = '';
   
   constructor(
     private service: HealthcareService,
@@ -30,7 +34,15 @@ export class GenerateStaffListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+  filteredStafflist(): any[] {
+    if (!this.searchText) {
+      return this.staffList;
+    }
+    const search = this.searchTerm.toLowerCase();
+    return this.staffList.filter(item =>
+      Object.values(item).some((value: any) => value.toLowerCase().includes(search))
+    );
+  }
   generateShift(): void {
 
       this.service.addShiftList(this.fullName, this.staffID, this.phoneNumber, this.selectedRole, this.selectedShift)

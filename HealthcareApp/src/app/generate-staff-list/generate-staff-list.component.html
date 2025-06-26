@@ -6,12 +6,26 @@
     class="form-control"
     style="width: 300px; padding: 8px;"
   />
-
-  <ul>
-    <li *ngFor="let item of selectedRole">
-      {{ item }}
-    </li>
-  </ul>
+  <table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>fullName</th>
+      <th>staffID</th>
+      <th>shift</th>
+      <th>role</th>
+      <th>phoneNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filteredStafflist()">
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.staffID }}</td>
+      <td>{{ user.shift }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 <div class="card">
 <mat-card>
