@@ -3,9 +3,9 @@
 ---
 
 **Tech Stack**
-Frontend - Angular, Material
-Backend - NodeJS, ExpressJS
-DB - MongoDB
+- Frontend - Angular, Material
+- Backend - NodeJS, ExpressJS
+- DB - MongoDB
 
 ---
 
