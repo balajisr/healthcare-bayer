@@ -18,10 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AppRoutingModule } from './app-routing.module';
-
+import { AttendanceComponent } from './attendance/attendance.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule,
+  declarations: [AppComponent, AttendanceComponent],
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
      HttpClientModule,
@@ -37,7 +41,10 @@ import { AppRoutingModule } from './app-routing.module';
     MatIconModule,
     MatTabsModule,
     ReactiveFormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
   ],
