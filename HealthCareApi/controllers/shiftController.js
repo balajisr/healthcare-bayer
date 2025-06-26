@@ -1,6 +1,7 @@
 const shiftConfigure = require("../models/shiftConfigure");
 const shifts = require("../models/shifts");
-
+const slotassign = require("../models/slotAssign");
+const staffdetails = require("../models/staffdetails");
 exports.addShifts = async (req, res) => {
   try {
     if (req.body.name && req.body.shiftFrom && req.body.shiftTo) {
@@ -55,4 +56,64 @@ exports.configureShifts = async (req, res) => {
   }
 };
 
-exports.assignedStaff = async (req, res) => {};
+exports.assignedStaff = async (req, res) => {
+  try {
+    const { staffId, slotId, assignedDate } = req.body;
+
+    const isStaffAssigned = slotassign.findOne({
+      staffId: staffId,
+      assignedDate: assignedDate,
+    });
+    if (isStaffAssigned) {
+      res.status(400).json({
+        success: false,
+        message: "Staff is already allocated for date : " + assignedDate,
+      });
+    } else {
+      const staffDetails = await staffdetails
+        .findOne({ staffId: staffId })
+        .select("roleId");
+      const roleId = staffDetails.roleId;
+      const getSlotCapacity = await configureShifts.findOne({
+        shiftId: slotId,
+        roleType: roleId,
+      });
+      const slotCapacity = getSlotCapacity.capacity;
+      const getAssignedSlot = await slotassign
+        .find({ slotId: slotId, assignedDate: assignedDate })
+        .count();
+      if (slotCapacity > getAssignedSlot) {
+        slotassign.create(req.body);
+        res
+          .status(200)
+          .json({ success: true, message: "Slot assigned successfully." });
+      }
+    }
+  } catch (error) {
+    res.status(400).json({ status: false, message: error.message });
+  }
+};
+exports.shift = async (req, res) => {
+  try {
+    const {
+      fullName,
+      staffID,
+      phoneNumber,
+      selectedRole,
+      selectedShift,
+    } = req.body;
+    const newShift = {
+      fullName: fullName,
+      staffID: staffID,
+      phoneNumber: phoneNumber,
+      selectedRole: selectedRole,
+      selectedShift: selectedShift,
+    };
+    return res.status(201).json({
+      message: "Shift added successfully",
+      shift: newShift,
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};

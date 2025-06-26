@@ -1,0 +1,17 @@
+.button-spacing {
+  margin-left: 500px;
+}
+mat-form-field {
+      width: 100%;
+    }
+.card{
+<<<<<<< Updated upstream
+    margin-top: 0%;
+}
+:host {
+    display: flex;
+    align-items: flex-start;
+=======
+    margin-left: 750px;
+>>>>>>> Stashed changes
+}

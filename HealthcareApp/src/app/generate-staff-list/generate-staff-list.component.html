@@ -1,1 +1,83 @@
-<p>generate-staff-list works!</p>
+<div style="margin: 20px;">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Search"
+    class="form-control"
+    style="width: 300px; padding: 8px;"
+  />
+<<<<<<< Updated upstream
+  <table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>fullName</th>
+      <th>staffID</th>
+      <th>shift</th>
+      <th>role</th>
+      <th>phoneNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filteredStafflist()">
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.staffID }}</td>
+      <td>{{ user.shift }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
+=======
+
+  <ul>
+    <li *ngFor="let item of selectedRole">
+      {{ item }}
+    </li>
+  </ul>
+>>>>>>> Stashed changes
+</div>
+<div class="card">
+<mat-card>
+    <mat-card-title>Generate Staff List</mat-card-title>
+    <mat-card-content class="spacing">
+        <form (ngSubmit)="generateShift()">
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Enter your name" [(ngModel)]="fullName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Staff ID</mat-label>
+                <input matInput placeholder="Enter your Staff ID" [(ngModel)]="staffID">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Role</mat-label>
+                <mat-select [(ngModel)]="selectedRole" name="role" required>
+                    <mat-option *ngFor="let role of roles" [value]="role">
+                        {{ role }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Shift Preference</mat-label>
+                <mat-select [(ngModel)]="selectedShift" name="shift" required>
+                    <mat-option *ngFor="let shift of shifts" [value]="shift">
+                        {{ shift }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Conatact Number</mat-label>
+                <input matInput placeholder="Enter your Conatact Number" [(ngModel)]="phoneNumber">
+            </mat-form-field>
+
+
+            <button class="button-spacing" mat-raised-button color="primary" type="submit">
+                Submit
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>

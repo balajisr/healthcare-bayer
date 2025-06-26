@@ -22,8 +22,9 @@ import { AttendanceComponent } from './attendance/attendance.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { GenerateStaffListComponent } from './generate-staff-list/generate-staff-list.component';
 @NgModule({
-  declarations: [AppComponent, AttendanceComponent],
+  declarations: [AppComponent, AttendanceComponent, GenerateStaffListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
