@@ -10,7 +10,7 @@
 ---
 
 **DB Collections**
-- Users
-- Staffs
-- Schedulers
 - Attendance
+- ShiftConfigure
+- ShiftList
+- Shifts
