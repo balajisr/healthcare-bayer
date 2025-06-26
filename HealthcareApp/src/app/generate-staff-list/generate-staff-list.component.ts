@@ -16,9 +16,9 @@ export class GenerateStaffListComponent implements OnInit {
   phoneNumber = '';
   role = '';
   roles: string[] = ['Doctor', 'Nurse', 'Technician', 'Admin'];
-  selectedRole: string = this.roles[0];
+  selectedRole: string = '';
   shifts: string[] = ['Morning', 'Evening', 'Night'];
-  selectedShift: string = this.shifts[0];
+  selectedShift: string = '';
   staffList: any[] = [
     { fullName: 'John Doe', staffID: '001', role: 'Doctor', shift: 'Morning', phoneNumber: '123-456-7890' },
     { fullName: 'Jane Smith', staffID: '002', role: 'Nurse', shift: 'Evening', phoneNumber: '987-654-3210' }];
