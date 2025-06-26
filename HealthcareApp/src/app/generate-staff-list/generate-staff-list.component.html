@@ -53,6 +53,7 @@
             <mat-form-field appearance="fill">
                 <mat-label>Role</mat-label>
                 <mat-select [(ngModel)]="selectedRole" name="role" required>
+                    <mat-option value="" disabled>Select Role</mat-option>
                     <mat-option *ngFor="let role of roles" [value]="role">
                         {{ role }}
                     </mat-option>
@@ -62,6 +63,7 @@
             <mat-form-field appearance="fill">
                 <mat-label>Shift Preference</mat-label>
                 <mat-select [(ngModel)]="selectedShift" name="shift" required>
+                    <mat-option value="" disabled>Select Role</mat-option>
                     <mat-option *ngFor="let shift of shifts" [value]="shift">
                         {{ shift }}
                     </mat-option>
