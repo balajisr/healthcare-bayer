@@ -25,11 +25,11 @@
 
   <br>
 
-    <mat-checkbox formControlName="isActive">
+    <mat-checkbox formControlName="onLeave">
     On Leave
     </mat-checkbox>
 
   <br><br>
 
-  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="staffForm.invalid">Submit</button>
 </form>

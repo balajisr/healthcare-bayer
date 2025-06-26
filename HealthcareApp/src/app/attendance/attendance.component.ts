@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-attendance',
@@ -17,10 +17,10 @@ export class AttendanceComponent {
 
   constructor(private fb: FormBuilder) {
     this.staffForm = this.fb.group({
-      staff: [null],
-      date: [null],
+      staff: [null, Validators.required],
+      date: [null, Validators.required],
       time: '',
-      isActive: [false]
+      onLeave: [false]
     });
   }
 
