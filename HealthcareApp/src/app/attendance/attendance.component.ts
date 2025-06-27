@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AttendanceService } from '../services/attendance/attendance.service';
 
 @Component({
   selector: 'app-attendance',
@@ -15,7 +16,7 @@ export class AttendanceComponent {
     { id: 3, name: 'Bob Johnson' }
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private attendanceService: AttendanceService) {
     this.staffForm = this.fb.group({
       staff: [null, Validators.required],
       date: [null, Validators.required],
@@ -25,6 +26,7 @@ export class AttendanceComponent {
   }
 
   onSubmit() {
+    this.attendanceService.submitAttendance(this.staffForm)
     console.log(this.staffForm.value);
   }
 

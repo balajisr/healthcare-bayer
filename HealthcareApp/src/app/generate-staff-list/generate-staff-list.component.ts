@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from '../auth-service.service';
+import { AuthServiceService } from '../services/auth/auth-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { HealthcareService } from '../healthcare.service';
+import { HealthcareService } from '../services/healthcare/healthcare.service';
 
 @Component({
   selector: 'app-generate-staff-list',
