@@ -4,21 +4,19 @@ const Attendance = require('../models/attendance');
 
 router.post('/', async (req, res) => {
   try {
-    const { staff, dateTime, isActive } = req.body;
-    const newLog = new Attendance({ staff, dateTime, isActive });
-    const saved = await newLog.save();
-    res.status(201).json(saved);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+    const { staffId, dateTime, onLeave } = req.body;
 
-router.get('/', async (req, res) => {
-  try {
-    const logs = await Attendance.find().populate('staff');
-    res.json(logs);
+    const attendance = new Attendance({
+      staffId,
+      dateTime,
+      onLeave,
+    });
+
+    const savedAttendance = await attendance.save();
+    res.status(201).json(savedAttendance);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error('Error saving attendance:', err);
+    res.status(500).json({ error: 'Failed to save attendance' });
   }
 });
 

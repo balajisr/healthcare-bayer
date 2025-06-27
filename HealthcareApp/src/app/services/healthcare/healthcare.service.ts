@@ -8,10 +8,10 @@ export interface shiftData {
 }
 export interface staff {
   fullName: string;
-    staffID: string;
-    selectedRole: string;
-    selectedShift: string;
-    phoneNumber: string;
+  staffID: string;
+  selectedRole: string;
+  selectedShift: string;
+  phoneNumber: string;
 }
 @Injectable({
   providedIn: 'root'

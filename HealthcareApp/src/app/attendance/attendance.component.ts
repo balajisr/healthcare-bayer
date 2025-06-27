@@ -26,6 +26,10 @@ export class AttendanceComponent {
   }
 
   onSubmit() {
+    let date = this.staffForm.value.date;
+    if(date) {
+      this.staffForm.value.date = date.toString()
+    }
     this.attendanceService.submitAttendance(this.staffForm)
     console.log(this.staffForm.value);
   }
