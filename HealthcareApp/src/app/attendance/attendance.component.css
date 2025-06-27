@@ -2,3 +2,9 @@ mat-datepicker-toggle {
     position: absolute;
     top: 0;
 }
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
